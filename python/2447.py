@@ -27,3 +27,4 @@ def star(n):
 
 for i in star(n):
     print(i)
+    
