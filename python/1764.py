@@ -1,3 +1,6 @@
+# 듣보잡 
+# 해시
+# https://www.acmicpc.net/problem/1764
 # 처음에 틀린 이유 : 사전순 정렬도 해주기!!
 n, m = map(int, input().split())
 result0 = set()
