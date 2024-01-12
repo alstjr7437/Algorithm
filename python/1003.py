@@ -1,3 +1,7 @@
+# 피보나치 함수
+# DP
+# https://www.acmicpc.net/problem/1003
+
 """
 아래와 같이 재귀로 풀면 시간 초과
 def fibo(n):
