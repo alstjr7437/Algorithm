@@ -1,6 +1,8 @@
-# 별찍기 - 10 
-# 분할정복
-# https://www.acmicpc.net/problem/2447
+"""
+별찍기 - 10 
+분할정복
+https://www.acmicpc.net/problem/2447
+"""
 """
 잘못 푼 예제 33일때만 중간이 비어지는 
 >> 재귀문제를 이렇게 반복문을 사용해서 print를 바로해도 될까?

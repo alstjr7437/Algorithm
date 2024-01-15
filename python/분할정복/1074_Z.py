@@ -1,6 +1,8 @@
-# Z  
-# 분할정복, 재귀
-# https://www.acmicpc.net/problem/1074
+"""
+Z  
+분할정복, 재귀
+https://www.acmicpc.net/problem/1074
+"""
 
 '''
 1사분면: 가로 < 2^(n-1) AND 세로 < 2^(n-1)

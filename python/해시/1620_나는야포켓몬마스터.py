@@ -1,6 +1,8 @@
-# 나는야 포켓몬 마스터 
-# 해시
-# https://www.acmicpc.net/problem/1620
+"""
+나는야 포켓몬 마스터 
+해시
+https://www.acmicpc.net/problem/1620
+"""
 import sys
 n, m = map(int, input().split())
 
