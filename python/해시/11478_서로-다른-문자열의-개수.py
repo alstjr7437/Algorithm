@@ -1,6 +1,7 @@
 """
 https://www.acmicpc.net/problem/11478
 """
+
 s = input()
 hello = []
 a = set()
