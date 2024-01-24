@@ -4,22 +4,16 @@
 https://www.acmicpc.net/problem/1620
 """
 import sys
-n, m = map(int, input().split())
+n,m = map(int, sys.stdin.readline().split())
+pokemon = {}
+for i in range(1,n+1):
+    name = sys.stdin.readline().strip()
+    pokemon[name] = i
+    pokemon[str(i)] = name
 
-dict_int = {}
-dict_name = {}
-
-for i in range(1, n+1):
-    pocket = sys.stdin.readline().strip()
-    dict_int[i] = pocket
-    dict_name[pocket] = i
-
-for i in range(m):
-    result = sys.stdin.readline().strip()
-    if result.isnumeric():
-        print(dict_int[int(result)])
-    else : 
-        print(dict_name[result])
+for i in range (0,m) :
+    question = sys.stdin.readline().strip()
+    print(pokemon[question])
 
 
 """
