@@ -1,4 +1,3 @@
-
 -- https://school.programmers.co.kr/learn/courses/30/lessons/151136 
 -- round 부분
 SELECT round(avg(daily_fee),0) as AVERAGE_FEE
