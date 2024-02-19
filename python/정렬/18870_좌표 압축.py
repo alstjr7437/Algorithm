@@ -1,15 +1,15 @@
 """
 https://www.acmicpc.net/problem/18870
 """
-import sys
+# import sys
 
-N = int(sys.stdin.readline())
-X = list(map(int, sys.stdin.readline().split()))
-arr = sorted(set(X))                                 #a를 set으로 만들고 정렬한, new_a를 생성
-dictionary = {arr[i] : i for i in range(len(arr))} #딕셔너리에 '숫자 : new_a에서의 인덱스'로 저장
+# N = int(sys.stdin.readline())
+# X = list(map(int, sys.stdin.readline().split()))
+# arr = sorted(set(X))                                 #a를 set으로 만들고 정렬한, new_a를 생성
+# dictionary = {arr[i] : i for i in range(len(arr))} #딕셔너리에 '숫자 : new_a에서의 인덱스'로 저장
 
-for i in X:                          #기존 a를 돌며
-    print(dictionary[i], end = ' ')  #a[i] key에 해당하는 dictionary의 value를 출력
+# for i in X:                          #기존 a를 돌며
+#     print(dictionary[i], end = ' ')  #a[i] key에 해당하는 dictionary의 value를 출력
 
 """
 N = int(input()) 
