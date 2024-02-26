@@ -1,30 +1,30 @@
-# from collections import deque
+"""
+https://www.acmicpc.net/problem/12789
+"""
 
-# n = int(input())
-# ticket = deque(list(map(int, input().split())))
-# nop = []
+from collections import deque
 
-# ticket_num = 1
+n = int(input())
+ticket = deque(list(map(int, input().split())))
+nop = []
 
-# while ticket :
-#     a = ticket.popleft()
-#     if ticket_num != a:
-#         nop.append(a)
-#     else :
-#         ticket_num = a+1
+ticket_num = 1
 
-#     for i in range(len(nop)):
-#         if ticket_num == nop[-1]:
-#             ticket_num = nop[-1] + 1
-#             nop.pop()
-#         else :
-#             break
+while ticket :
+    a = ticket.popleft()
+    if ticket_num != a:
+        nop.append(a)
+    else :
+        ticket_num = a+1
 
-# if nop:
-#     print("Sad")
-# else :
-    # print("Nice")
+    for i in range(len(nop)):
+        if ticket_num == nop[-1]:
+            ticket_num = nop[-1] + 1
+            nop.pop()
+        else :
+            break
 
-n = 10
-dict = {i : 0 for i in range(n)}
-print(dict)
+if nop:
+    print("Sad")
+else :
+    print("Nice")

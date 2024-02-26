@@ -1,3 +1,7 @@
+"""
+https://www.acmicpc.net/problem/11000
+"""
+
 import heapq
 import sys
 
