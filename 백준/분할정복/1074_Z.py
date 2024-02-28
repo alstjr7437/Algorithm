@@ -18,7 +18,8 @@ count = 0
 while N != 0:
     N -= 1
     size = 2 ** N
-
+    print(size)
+    print(size, r,c, count)
     # 1사분면
     if r < size and c < size:
         count += 0
