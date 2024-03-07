@@ -7,6 +7,7 @@ n, m, v = map(int, input().split())
 graph = { i : [] for i in range(1, n+1)}
 visited = [False] * (n + 1)
 visited2 = [False] * (n + 1)
+visited3 = [False] * (n + 1)
 
 for i in range(m):
     a, b = map(int, input().split())
@@ -34,10 +35,10 @@ def dfs(v):
         if visited2[i] == False:
             visited2[i] = True
             dfs(i)
-    
+
 
 visited2[v] = True
-dfs(v)
+dfs()
 print()
 bfs()
 
