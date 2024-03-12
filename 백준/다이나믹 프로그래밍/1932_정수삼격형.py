@@ -13,4 +13,4 @@ for i in range(1,n):
         else :
             num_list[i][j] = max(num_list[i][j] + num_list[i-1][j-1], num_list[i][j] + num_list[i-1][j])
 
-print(max(num_list[n-1]))
+print(max(num_list[n-1])) 
