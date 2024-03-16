@@ -16,7 +16,7 @@ def solution(gems):
         # 종류 같으면
         else:  
             if (tail-head+1) < (answer[1]-answer[0]+1):
-                print("Hello")
+                # print("Hello")
                 answer = [head,tail]
             if dict[gems[head]] == 1:
                 del dict[gems[head]]
