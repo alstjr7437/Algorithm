@@ -17,11 +17,11 @@ def fibo(n, k):
         return 1
     return fibo(n-1, k) + fibo(n-1, k-1)
 
+print(fibo(n,k))
+
 def fibo2(n):
     if n == 0 :
         return 1
     return n * fibo2(n-1)
 
 print(fibo2(n)// (fibo2(n-k) * fibo2(k)))
-
-# print(fibo(n,k))
