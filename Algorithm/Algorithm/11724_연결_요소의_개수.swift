@@ -58,18 +58,17 @@ func 연결_요소의_개수_11724() {
         }
     }
     
-    func bfs3(start: Int){
+    func bfs3(start: Int) {
         visited[start] = true
-        var stack1: [Int] = [start]
         
-        while !stack1.isEmpty{
-            var temp: [Int] = []
-            for i in stack1.reversed() { temp.append(i) }
-            stack1 = temp
-            let current = stack1.removeLast()
-            for i in graph[current]{
+        var q = Queue<Int>()
+        q.push(start)
+        
+        while !q.isEmpty {
+            let current = q.pop()!
+            for i in graph[current] {
                 if visited[i] == false {
-                    stack1.append(i)
+                    q.push(i)
                     visited[i] = true
                 }
             }
@@ -78,11 +77,33 @@ func 연결_요소의_개수_11724() {
     
     for i in 1...n{
         if visited[i] == false {
-            bfs3(start : i)
+            bfs1(start : i)
             result += 1
         }
     }
 
     print(result)
 
+}
+
+struct Queue<T> {
+    private var enqueue: [T] = []
+    private var dequeue: [T] = []
+    
+    var isEmpty: Bool {
+        return enqueue.isEmpty && dequeue.isEmpty
+    }
+    
+    mutating func push(_ input: T) {
+        enqueue.append(input)
+    }
+    
+    @discardableResult
+    mutating func pop() -> T? {
+        if dequeue.isEmpty {
+            dequeue = enqueue.reversed()
+            enqueue = []
+        }
+        return dequeue.popLast()
+    }
 }
