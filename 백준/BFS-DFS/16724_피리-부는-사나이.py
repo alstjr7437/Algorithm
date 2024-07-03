@@ -37,4 +37,3 @@ for y in range(n):
             dfs(x, y)
 
 print(result)
-
