@@ -1,10 +1,3 @@
-//
-//  main.swift
-//  Algorithm
-//
-//  Created by KimMinSeok on 4/13/24.
-//
-
 import Foundation
 
 // 1. 입력
@@ -14,8 +7,7 @@ let N = NM[0] - 1
 let M = NM[1] - 1
 
 for _ in 0...N {
-    let line = readLine()!
-    board.append(line.map { Int(String($0))! })
+    board.append(readLine()!.map { Int(String($0))! })
 }
 
 // 2. 미로 탐색(BFS)
