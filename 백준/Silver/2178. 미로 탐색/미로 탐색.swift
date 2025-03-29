@@ -1,40 +1,44 @@
-import Foundation
+var nm = readLine()!.split(separator: " ").map { Int(String($0))! }
 
-// 1. 입력
-let NM = readLine()!.split(separator: " ").map { Int(String($0))! }
-var board:[[Int]] = []
-let N = NM[0] - 1
-let M = NM[1] - 1
+let dx = [0, 0, -1, 1]
+let dy = [-1, 1, 0, 0] // 상하좌우
 
-for _ in 0...N {
-    board.append(readLine()!.map { Int(String($0))! })
+var arr = [[Int]]()
+var visited = Array(repeating: Array(repeating: false, count: nm[1]), count: nm[0])
+var distance = Array(repeating: Array(repeating: 0, count: nm[1]), count: nm[0])
+
+for _ in 0..<nm[0] {
+    var temp = Array(readLine()!).map { Int(String($0))! }
+    arr.append(temp)
 }
 
-// 2. 미로 탐색(BFS)
-let dx = [0,0,-1,1]
-let dy = [-1,1,0,0]
-
-var queue:[(Int,Int)] = [(0,0)]
-var idx = 0
-
-board[0][0] = 0
-while idx < queue.count {
-    let current = queue[idx]
-    idx += 1
+func bfs() {
+    distance[0][0] = 1
+    visited[0][0] = true
     
-    if current.0 == N && current.1 == M { break }
-    for i in 0..<4 {
-        let nx = current.0 + dx[i]
-        let ny = current.1 + dy[i]
+    var queue: [[Int]] = [[0,0]]
+    
+    while !queue.isEmpty {
+        let pop = queue.removeFirst()
         
-        if nx > M || nx < 0 || ny > N || ny < 0 { continue }
-        if board[ny][nx] == 1 {
-            queue.append((nx,ny))
-            board[ny][nx] = board[current.1][current.0] + 1
+        let x = pop[0]
+        let y = pop[1]
+        
+        for i in 0..<4 {
+            let nx = x + dx[i]
+            let ny = y + dy[i]
+            
+            if nx >= 0 && nx < nm[0] && ny >= 0 && ny < nm[1] {
+                if !visited[nx][ny] && arr[nx][ny] == 1 {
+                    distance[nx][ny] = distance[x][y] + 1
+                    
+                    visited[nx][ny] = true
+                    queue.append([nx, ny])
+                }
+            }
         }
     }
 }
 
-// 3. 결과 출력
-print(board[N][M] + 1)
-
+bfs()
+print(distance[nm[0]-1][nm[1]-1])
