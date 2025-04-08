@@ -6,47 +6,46 @@ struct Heap {
         
         var index = elements.count - 1
         while index > 0 {
-            let parentIndex = (index - 1) / 2
-            if elements[index] > elements[parentIndex] {
-                elements.swapAt(index, parentIndex)
-                index = parentIndex
+            let parent = (index - 1) / 2
+            
+            if elements[parent] < elements[index] {
+                elements.swapAt(index, parent)
+                index = parent
             } else {
                 break
             }
         }
     }
     
-    mutating func remove() -> Int {
-        guard !elements.isEmpty else { return 0 }
+    mutating func remove() -> Int? {
+        guard !elements.isEmpty else { return nil }
         if elements.count == 1 {
             return elements.removeFirst()
         }
 
-        let maxValue = elements[0]
+        let removeValue = elements[0]
         elements[0] = elements.removeLast()
+        
         var index = 0
-
         while index < elements.count {
-            let leftChild = 2 * index + 1
-            let rightChild = 2 * index + 2
-            var largest = index
-
-            if leftChild < elements.count && elements[leftChild] > elements[largest] {
-                largest = leftChild
+            
+            let left = index * 2 + 1
+            let right = index * 2 + 2
+            var current = index
+            
+            if left < elements.count && elements[left] > elements[current] {
+                current = left
             }
-            if rightChild < elements.count && elements[rightChild] > elements[largest] {
-                largest = rightChild
+            if right < elements.count && elements[right] > elements[current] {
+                current = right
             }
-
-            if largest == index {
-                break
-            }
-
-            elements.swapAt(index, largest)
-            index = largest
+            if current == index { break }
+            
+            elements.swapAt(index, current)
+            index = current
         }
-
-        return maxValue
+        
+        return removeValue
     }
     
 }
@@ -57,8 +56,9 @@ var heap = Heap()
 for _ in 0..<N {
     let input = Int(readLine()!)!
     if input == 0 {
-        print(heap.remove())
+        print(heap.remove() ?? 0)
     } else {
         heap.insert(node: input)
     }
 }
+
