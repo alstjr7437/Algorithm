@@ -7,7 +7,7 @@ func puzzle(diffs: [Int], times: [Int], level: Int) -> Int{
             result += times[i]
         } else {
             let discorrectCount = diffs[i] - level
-            let discorrectUseTime = (i > 0 ? times[i - 1] : 0) + times[i]
+            let discorrectUseTime = times[i - 1] + times[i]
             let totalUseTime = discorrectUseTime * discorrectCount + times[i]
             result += totalUseTime
         }
@@ -19,7 +19,7 @@ func puzzle(diffs: [Int], times: [Int], level: Int) -> Int{
 
 func solution(_ diffs:[Int], _ times:[Int], _ limit:Int64) -> Int {
     var start = 1
-    var end = diffs.max() ?? 10
+    var end = diffs.max() ?? 100000
     var mid = 0
     var answer = 0
     
