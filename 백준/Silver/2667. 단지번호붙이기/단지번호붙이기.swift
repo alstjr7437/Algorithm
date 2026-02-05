@@ -19,7 +19,7 @@ for y in 0..<N {
         
         if current == 0 { map[y][x] = 2 }
         if current == 1 {
-            result.append(dfs(x: x, y: y, value: 0))
+            result.append(dfs(x: x, y: y))
         }
     }
 }
@@ -27,9 +27,9 @@ for y in 0..<N {
 print(result.count)
 result.sorted().forEach { print($0) }
 
-func dfs(x: Int, y: Int, value: Int) -> Int {
+func dfs(x: Int, y: Int) -> Int {
     map[y][x] = 2;
-    var result = value + 1
+    var result = 1
     
     for i in 0..<4 {
         let nx = x + dx[i]
@@ -39,7 +39,7 @@ func dfs(x: Int, y: Int, value: Int) -> Int {
         
         if map[ny][nx] != 1 { continue }
         
-        result += dfs(x: nx, y: ny, value: value)
+        result += dfs(x: nx, y: ny)
     }
     
     return result
